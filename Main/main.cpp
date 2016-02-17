@@ -5,6 +5,7 @@
 #include "Commands/CDirectiveFile.h"
 #include "Tests.h"
 #include <chrono>
+#include <tchar.h>
 
 #if defined(_WIN64) || defined(__x86_64__) || defined(__amd64__)
 #define ARMIPSNAME "ARMIPS64"
@@ -29,7 +30,7 @@ int wmain(int argc, wchar_t* argv[])
 		return !runTests(argv[1]);
 #endif
 
-	Logger::printLine(L"%s Assembler v%d.%d.%d (" __DATE__ " " __TIME__ ") by Kingcom",
+	Logger::printLine(L"%s Assembler v%d.%d.%d (" _T(__DATE__) L" " _T(__TIME__) L") by Kingcom",
 		ARMIPSNAME,ARMIPS_VERSION_MAJOR,ARMIPS_VERSION_MINOR,ARMIPS_VERSION_REVISION);
 
 	StringList arguments = getStringListFromArray(argv,argc);
